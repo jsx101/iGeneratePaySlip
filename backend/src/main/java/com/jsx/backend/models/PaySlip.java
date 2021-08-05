@@ -1,9 +1,6 @@
 package com.jsx.backend.models;
 
-import com.jsx.backend.models.pay_slip_functions.GrossIncomeCalculator;
-import com.jsx.backend.models.pay_slip_functions.IncomeTaxCalculator;
-import com.jsx.backend.models.pay_slip_functions.NetIncomeCalculator;
-import com.jsx.backend.models.pay_slip_functions.SuperannuationCalculator;
+import com.jsx.backend.models.pay_slip_functions.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class PaySlip {
@@ -12,8 +9,8 @@ public class PaySlip {
     private Integer incomeTax;
     private Integer netIncome;
     private Integer superannuation;
-    private String fromDate;
-    private String toDate;
+    private String paymentStartDate;
+    private String paymentEndDate;
 
     //@Autowired
     private GrossIncomeCalculator grossIncomeCalculator;
@@ -23,6 +20,7 @@ public class PaySlip {
     private NetIncomeCalculator netIncomeCalculator;
     //@Autowired
     private SuperannuationCalculator superannuationCalculator;
+    private PaymentPeriodIdentifier paymentPeriodIdentifier;
 
     @Autowired
     public PaySlip(EmployeeDetail employee) {
@@ -32,6 +30,7 @@ public class PaySlip {
         this.incomeTaxCalculator = new IncomeTaxCalculator();
         this.netIncomeCalculator = new NetIncomeCalculator();
         this.superannuationCalculator = new SuperannuationCalculator();
+        this.paymentPeriodIdentifier = new PaymentPeriodIdentifier();
     }
 
     public Integer returnGrossIncomeAmount() {
@@ -54,6 +53,16 @@ public class PaySlip {
         return this.superannuation;
     }
 
+    public String returnPaymentStartDate() {
+        this.paymentStartDate = paymentPeriodIdentifier.getPaymentStartDate(employee.getPaymentMonth());
+        return this.paymentStartDate;
+    }
+
+    public String returnPaymentEndDate() {
+        this.paymentEndDate = paymentPeriodIdentifier.getPaymentEndDate(employee.getPaymentMonth());
+        return this.paymentEndDate;
+    }
+
     @Override
     public String toString() {
         return "PaySlip{" +
@@ -62,6 +71,8 @@ public class PaySlip {
                 ", incomeTax=" + incomeTax +
                 ", netIncome=" + netIncome +
                 ", superannuation=" + superannuation +
+                ", paymentStartDate='" + paymentStartDate + '\'' +
+                ", paymentEndDate='" + paymentEndDate + '\'' +
                 '}';
     }
 }

@@ -10,18 +10,18 @@ public class EmployeeDetail {
     private String lastname;
     private Integer annualSalary;
     private Double superRate;
-    //private LocalDate payStartDate;
+    private Integer paymentMonth;
 
     public EmployeeDetail() {
 
     }
 
-    public EmployeeDetail(String firstname, String lastname, Integer annualSalary, Double superRate) {
+    public EmployeeDetail(String firstname, String lastname, Integer annualSalary, Double superRate, String paymentMonth) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.annualSalary = annualSalary;
-        this.superRate = superRate;
-        //this.payStartDate = payStartDate;
+        this.superRate = superRate/100;
+        this.paymentMonth = Integer.parseInt(paymentMonth);
     }
 
     public String getFirstname() {
@@ -56,6 +56,14 @@ public class EmployeeDetail {
         this.superRate = superRate;
     }
 
+    public Integer getPaymentMonth() {
+        return paymentMonth;
+    }
+
+    public void setPaymentMonth(Integer paymentMonth) {
+        this.paymentMonth = paymentMonth;
+    }
+
     @Override
     public String toString() {
         return "EmployeeDetail{" +
@@ -65,12 +73,4 @@ public class EmployeeDetail {
                 ", superRate=" + superRate +
                 '}';
     }
-
-//    public LocalDate getPayStartDate() {
-//        return payStartDate;
-//    }
-//
-//    public void setPayStartDate(LocalDate payStartDate) {
-//        this.payStartDate = payStartDate;
-//    }
 }

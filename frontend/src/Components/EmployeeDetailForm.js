@@ -15,8 +15,6 @@ function EmployeeDetailForm({sendDataToParent}) {
         const newData = {...formData};
         newData[e.target.id] = e.target.value;
         setFormData(newData);
-        console.log(newData);
-    
     }
 
     var handleSubmit = (e) => {

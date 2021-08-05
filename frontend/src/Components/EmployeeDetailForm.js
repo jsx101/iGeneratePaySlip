@@ -1,24 +1,59 @@
 import { Container, Form, FormGroup, Input, Label } from 'reactstrap';
+import { useState } from 'react';
 
-function EmployeeDetailForm() {
+const axios = require('axios');
+
+function EmployeeDetailForm({sendDataToParent}) {
+    const [ formData, setFormData ] = useState({
+        firstname: '',
+        lastname: '',
+        annualSalary: '',
+        paymentMonth: '',
+        superRate: ''
+    })
+    var handleChange = (e) => {
+        const newData = {...formData};
+        newData[e.target.id] = e.target.value;
+        setFormData(newData);
+        console.log(newData);
+    
+    }
+
+    var handleSubmit = (e) => {
+        e.preventDefault();
+        formData.superRate = formData.superRate/100;
+        axios.post('/api/generate/pay-slip', formData)
+            .then(res => {
+                setFormData({
+                    firstname: '',
+                    lastname: '',
+                    annualSalary: '',
+                    paymentMonth: '',
+                    superRate: ''
+                })
+                sendDataToParent(res.data);
+            });
+    }
+
     return <Container>
-        <h2>Employee Details</h2>
-        <Form onSubmit='/api/generate/pay-slip'>
+        <h2>Fill in employee details</h2>
+        <Form onSubmit={(e) => handleSubmit(e)}>
             <FormGroup>
                 <Label for='firstname'>First name</Label>
-                <Input type='text' name='firstname' id='firstname' required='required' />
+                <Input type='text' name='firstname' id='firstname' onChange={(e) => handleChange(e)} value={formData.firstname} required='required' />
             </FormGroup>
             <FormGroup>
                 <Label for='lastname'>Last name</Label>
-                <Input type='text' name='lastname' id='lastname' required='required' />
+                <Input type='text' name='lastname' id='lastname' onChange={(e) => handleChange(e)} value={formData.lastname} required='required' />
             </FormGroup>
             <FormGroup>
                 <Label for='annualSalary' min='0'>Annual Salary ($)</Label>
-                <Input type='number' name='annualSalary' id='annualSalary' required='required' />
+                <Input type='number' name='annualSalary' id='annualSalary' onChange={(e) => handleChange(e)} value={formData.annualSalary} required='required' />
             </FormGroup>
             <FormGroup>
                 <Label for='paymentMonth'>Payment month</Label>
-                <select name='paymentMonth' id='paymentMonth' required='required'>
+                <select name='paymentMonth' id='paymentMonth' onChange={(e) => handleChange(e)} value={formData.paymentMonth} required='required'>
+                    <option value=''>SELECT</option>
                     <option value='0'>January</option>
                     <option value='1'>February</option>
                     <option value='2'>March</option>
@@ -35,12 +70,10 @@ function EmployeeDetailForm() {
             </FormGroup>
             <FormGroup>
                 <Label for='superRate'>Superannuation rate (%)</Label>
-                <Input type='' name='superRate' id='superRate' min='0' step='0.1' required='required' />
+                <Input type='' name='superRate' id='superRate' min='0' step='0.1' onChange={(e) => handleChange(e)} value={formData.superRate} required='required' />
             </FormGroup>
-            <FormGroup>
-                <Input type='submit' value='Generate' />
-                <Input type='reset' value='Clear' />
-            </FormGroup>
+            <Input type='submit' value='Generate' />
+            <Input type='reset' value='Clear' />
         </Form>
     </Container>
 }

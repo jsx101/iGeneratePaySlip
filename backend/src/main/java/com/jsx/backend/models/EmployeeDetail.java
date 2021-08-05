@@ -66,11 +66,12 @@ public class EmployeeDetail {
 
     @Override
     public String toString() {
-        return "EmployeeDetail{" +
-                "firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", annualSalary=" + annualSalary +
-                ", superRate=" + superRate +
+        return "{" +
+                "\"firstname\":\"" + firstname + '"' +
+                ", \"lastname\":\"" + lastname + '"' +
+                ", \"annualSalary\":" + annualSalary +
+                ", \"superRate\":" + superRate +
+                ", \"paymentMonth\":" + paymentMonth +
                 '}';
     }
 }

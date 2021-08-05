@@ -65,14 +65,14 @@ public class PaySlip {
 
     @Override
     public String toString() {
-        return "PaySlip{" +
-                "employee=" + employee +
-                ", grossIncome=" + grossIncome +
-                ", incomeTax=" + incomeTax +
-                ", netIncome=" + netIncome +
-                ", superannuation=" + superannuation +
-                ", paymentStartDate='" + paymentStartDate + '\'' +
-                ", paymentEndDate='" + paymentEndDate + '\'' +
+        return "{" +
+                "\"employee\":" + employee +
+                ", \"grossIncome\":" + grossIncome +
+                ", \"incomeTax\":" + incomeTax +
+                ", \"netIncome\":" + netIncome +
+                ", \"superannuation\":" + superannuation +
+                ", \"paymentStartDate\":\"" + paymentStartDate + '"' +
+                ", \"paymentEndDate\":\"" + paymentEndDate + '"' +
                 '}';
     }
 }

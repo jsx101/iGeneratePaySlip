@@ -1,4 +1,4 @@
-package com.jsx.accountant.payslipcalculator;
+package com.jsx.backend.models.pay_slip_functions;
 
 import org.springframework.stereotype.Component;
 

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jsx</groupId>
-	<artifactId>accountant</artifactId>
+	<artifactId>backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>accountant</name>
+	<name>backend</name>
 	<description>Backend for the pay slip generator app</description>
 	<properties>
 		<java.version>16</java.version>
@@ -34,7 +34,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>${project.parent.version}</version>
 			</plugin>
 		</plugins>
 	</build>

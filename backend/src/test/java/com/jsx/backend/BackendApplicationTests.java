@@ -1,10 +1,10 @@
-package com.jsx.accountant;
+package com.jsx.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AccountantApplicationTests {
+class BackendApplicationTests {
 
 	@Test
 	void contextLoads() {

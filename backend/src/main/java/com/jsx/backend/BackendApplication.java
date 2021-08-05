@@ -1,13 +1,13 @@
-package com.jsx.accountant;
+package com.jsx.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AccountantApplication {
+public class BackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AccountantApplication.class, args);
+		SpringApplication.run(BackendApplication.class, args);
 	}
 
 }

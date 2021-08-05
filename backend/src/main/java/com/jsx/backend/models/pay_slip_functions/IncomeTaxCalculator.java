@@ -1,4 +1,4 @@
-package com.jsx.accountant.payslipcalculator;
+package com.jsx.backend.models.pay_slip_functions;
 
 import org.springframework.stereotype.Component;
 
@@ -13,19 +13,19 @@ public class IncomeTaxCalculator {
 
     public Integer calculate(Integer annualSalary) {
         if (annualSalary <= incomeUpperLimit.get(0)) {
-            System.out.println("Column 0");
+            //System.out.println("Column 0");
             return calculateForTaxIncomeColumn(annualSalary, 0);
         } else if (annualSalary <= incomeUpperLimit.get(1)) {
-            System.out.println("Column 1");
+            //System.out.println("Column 1");
             return calculateForTaxIncomeColumn(annualSalary, 1);
         } else if (annualSalary <= incomeUpperLimit.get(2)) {
-            System.out.println("Column 2");
+            //System.out.println("Column 2");
             return calculateForTaxIncomeColumn(annualSalary, 2);
         } else if (annualSalary <= incomeUpperLimit.get(3)) {
-            System.out.println("Column 3");
+            //System.out.println("Column 3");
             return calculateForTaxIncomeColumn(annualSalary, 3);
         } else {
-            System.out.println("Column 4");
+            //System.out.println("Column 4");
             return calculateForTaxIncomeColumn(annualSalary, 4);
         }
     }

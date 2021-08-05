@@ -1,4 +1,4 @@
-package com.jsx.accountant.payslipcalculator;
+package com.jsx.backend.models.pay_slip_functions;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,3 +13,4 @@ public class SuperannuationCalculator {
         return (int) Math.round(grossIncome*superRate);
     }
 }
+

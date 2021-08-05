@@ -1,24 +1,28 @@
 package com.jsx.backend.models;
 
 import org.springframework.stereotype.Component;
-
+import java.lang.String;
 import java.time.LocalDate;
 
-@Component
+//@Component
 public class EmployeeDetail {
     private String firstname;
     private String lastname;
     private Integer annualSalary;
-    private Float superRate;
-    private LocalDate payStartDate;
+    private Double superRate;
+    //private LocalDate payStartDate;
 
-//    public EmployeeDetail(String firstname, String lastname, Integer annualSalary, Float superRate, LocalDate payStartDate) {
-//        this.firstname = firstname;
-//        this.lastname = lastname;
-//        this.annualSalary = annualSalary;
-//        this.superRate = superRate;
-//        this.payStartDate = payStartDate;
-//    }
+    public EmployeeDetail() {
+
+    }
+
+    public EmployeeDetail(String firstname, String lastname, Integer annualSalary, Double superRate) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.annualSalary = annualSalary;
+        this.superRate = superRate;
+        //this.payStartDate = payStartDate;
+    }
 
     public String getFirstname() {
         return firstname;
@@ -44,19 +48,29 @@ public class EmployeeDetail {
         this.annualSalary = annualSalary;
     }
 
-    public Float getSuperRate() {
+    public Double getSuperRate() {
         return superRate;
     }
 
-    public void setSuperRate(Float superRate) {
+    public void setSuperRate(Double superRate) {
         this.superRate = superRate;
     }
 
-    public LocalDate getPayStartDate() {
-        return payStartDate;
+    @Override
+    public String toString() {
+        return "EmployeeDetail{" +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", annualSalary=" + annualSalary +
+                ", superRate=" + superRate +
+                '}';
     }
 
-    public void setPayStartDate(LocalDate payStartDate) {
-        this.payStartDate = payStartDate;
-    }
+//    public LocalDate getPayStartDate() {
+//        return payStartDate;
+//    }
+//
+//    public void setPayStartDate(LocalDate payStartDate) {
+//        this.payStartDate = payStartDate;
+//    }
 }

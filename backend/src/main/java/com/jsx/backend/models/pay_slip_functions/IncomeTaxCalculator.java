@@ -6,10 +6,14 @@ import java.util.List;
 
 @Component
 public class IncomeTaxCalculator {
+
     private List<Double> incomeUpperLimit = List.of(18200.0, 37000.0, 87000.0, 180000.0);
     private List<Double> baseTax = List.of(0.0, 0.0, 3572.0, 19822.0, 54232.0);
     private List<Double> amountPerDollar = List.of(0.0, 0.19, 0.325, 0.37, 0.45);
     private List<Double> incomeLowerLimit = List.of(0.0, 18200.0, 37000.0, 87000.0, 180000.0);
+
+    public IncomeTaxCalculator() {
+    }
 
     public Integer calculate(Integer annualSalary) {
         if (annualSalary <= incomeUpperLimit.get(0)) {

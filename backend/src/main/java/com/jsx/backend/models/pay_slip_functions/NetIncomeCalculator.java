@@ -6,10 +6,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class NetIncomeCalculator {
 
-    @Autowired
+    //@Autowired
     GrossIncomeCalculator grossIncomeCalculator;
-    @Autowired
+    //@Autowired
     IncomeTaxCalculator incomeTaxCalculator;
+
+    public NetIncomeCalculator() {
+        this.grossIncomeCalculator = new GrossIncomeCalculator();
+        this.incomeTaxCalculator = new IncomeTaxCalculator();
+    }
 
     public Integer calculate(Integer annualSalary) {
         Integer grossIncome = grossIncomeCalculator.calculate(annualSalary);

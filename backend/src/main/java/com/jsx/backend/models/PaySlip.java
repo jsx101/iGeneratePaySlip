@@ -5,12 +5,7 @@ import com.jsx.backend.models.pay_slip_functions.IncomeTaxCalculator;
 import com.jsx.backend.models.pay_slip_functions.NetIncomeCalculator;
 import com.jsx.backend.models.pay_slip_functions.SuperannuationCalculator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping(path="api")
 public class PaySlip {
     private EmployeeDetail employee;
     private Integer grossIncome;
@@ -20,44 +15,55 @@ public class PaySlip {
     private String fromDate;
     private String toDate;
 
-    @Autowired
+    //@Autowired
     private GrossIncomeCalculator grossIncomeCalculator;
-    @Autowired
+    //@Autowired
     private IncomeTaxCalculator incomeTaxCalculator;
-    @Autowired
+    //@Autowired
     private NetIncomeCalculator netIncomeCalculator;
-    @Autowired
+    //@Autowired
     private SuperannuationCalculator superannuationCalculator;
 
-//    public PaySlip(EmployeeDetail employee) {
-//        this.employee = employee;
-//    }
+    @Autowired
+    public PaySlip(EmployeeDetail employee) {
+        this.employee = employee;
 
-    @GetMapping(path="gross-income")
+        this.grossIncomeCalculator = new GrossIncomeCalculator();
+        this.incomeTaxCalculator = new IncomeTaxCalculator();
+        this.netIncomeCalculator = new NetIncomeCalculator();
+        this.superannuationCalculator = new SuperannuationCalculator();
+    }
+
     public Integer returnGrossIncomeAmount() {
-        this.grossIncome = grossIncomeCalculator.calculate(60050);
+        this.grossIncome = grossIncomeCalculator.calculate(employee.getAnnualSalary());
         return this.grossIncome;
     }
 
-    @GetMapping(path="income-tax")
     public Integer returnIncomeTaxAmount() {
-        this.incomeTax = incomeTaxCalculator.calculate(120000);
+        this.incomeTax = incomeTaxCalculator.calculate(employee.getAnnualSalary());
         return incomeTax;
     }
 
-    @GetMapping(path="net-income")
     public Integer returnNetIncome() {
-        this.netIncome = netIncomeCalculator.calculate(60050);
+        this.netIncome = netIncomeCalculator.calculate(employee.getAnnualSalary());
         return this.netIncome;
     }
 
-    @GetMapping(path="superannuation")
     public Integer returnSuperannuation() {
-        this.superannuation = superannuationCalculator.calculate(60050, 0.09);
+        this.superannuation = superannuationCalculator.calculate(employee.getAnnualSalary(), employee.getSuperRate());
         return this.superannuation;
     }
 
-
+    @Override
+    public String toString() {
+        return "PaySlip{" +
+                "employee=" + employee +
+                ", grossIncome=" + grossIncome +
+                ", incomeTax=" + incomeTax +
+                ", netIncome=" + netIncome +
+                ", superannuation=" + superannuation +
+                '}';
+    }
 }
 
 

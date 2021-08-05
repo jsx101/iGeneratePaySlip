@@ -4,6 +4,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PaymentPeriodIdentifier {
+
+    public PaymentPeriodIdentifier() {
+    }
+
     public String getPaymentStartDate() {
         return "01 ";
     }

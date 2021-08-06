@@ -20,7 +20,7 @@ public class EmployeeDetail {
         this.firstname = firstname;
         this.lastname = lastname;
         this.annualSalary = annualSalary;
-        this.superRate = superRate/100;
+        this.superRate = superRate;
         this.paymentMonth = Integer.parseInt(paymentMonth);
     }
 

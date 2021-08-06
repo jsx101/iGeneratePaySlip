@@ -63,6 +63,15 @@ public class PaySlip {
         return this.paymentEndDate;
     }
 
+    public EmployeeDetail getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(EmployeeDetail employee) {
+        this.employee = employee;
+    }
+
+
     @Override
     public String toString() {
         return "{" +

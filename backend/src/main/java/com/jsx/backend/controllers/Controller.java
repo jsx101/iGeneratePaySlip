@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
     @PostMapping(path="generate/pay-slip")
     public String generatePaySlip(@RequestBody EmployeeDetail employee) {
-        System.out.println(employee.toString());
+        //System.out.println(employee.toString());
         PaySlip paySlip = new PaySlip(employee);
 
         paySlip.returnGrossIncomeAmount();

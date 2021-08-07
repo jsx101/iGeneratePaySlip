@@ -11,7 +11,7 @@ class PaySlipUnitTest {
             "Employee",
             0,
             0.0,
-            "0"
+            0
     ));
 
     @Test

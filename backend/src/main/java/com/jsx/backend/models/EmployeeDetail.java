@@ -15,12 +15,12 @@ public class EmployeeDetail {
     public EmployeeDetail() {
     }
 
-    public EmployeeDetail(String firstname, String lastname, Integer annualSalary, Double superRate, String paymentMonth) {
+    public EmployeeDetail(String firstname, String lastname, Integer annualSalary, Double superRate, Integer paymentMonth) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.annualSalary = annualSalary;
         this.superRate = superRate;
-        this.paymentMonth = Integer.parseInt(paymentMonth);
+        this.paymentMonth = paymentMonth;
     }
 
     @Override

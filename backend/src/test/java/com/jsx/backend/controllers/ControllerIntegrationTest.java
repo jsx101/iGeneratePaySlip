@@ -30,7 +30,7 @@ class ControllerIntegrationTest {
                         "Rudd",
                         12006,
                         0.09,
-                        "3"
+                        3
                 )))
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON);

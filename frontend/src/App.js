@@ -25,7 +25,7 @@ function App() {
   }, [paySlipData]);
 
   return (
-    <div className="App">
+    <div data-testid='app' className="App">
       {display}
     </div>
   );

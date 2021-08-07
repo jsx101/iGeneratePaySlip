@@ -1,7 +1,7 @@
 function PaySlipData({ data, backToFormFunction }) {
     const { employee, grossIncome, incomeTax, netIncome, superannuation, paymentStartDate, paymentEndDate } = data;
     const { firstname, lastname, superRate } = employee;
-    return <div>
+    return <div data-testid="pay-slip-data">
         <div>
             Employee's name: {firstname + ' ' + lastname}
         </div>
@@ -18,10 +18,10 @@ function PaySlipData({ data, backToFormFunction }) {
             Income tax: ${incomeTax}
         </div>
         <div>
-            Superannuation: ${superannuation + `(${superRate*100}%)`}
+            Superannuation: ${superannuation + ` (${superRate*100}%)`}
         </div>
 
-        <button onClick={()=>{backToFormFunction()}}>Back</button>
+        <button data-testid='paySlipDisplay-back-button' onClick={()=>{backToFormFunction()}}>Back</button>
     </div>
 }
 

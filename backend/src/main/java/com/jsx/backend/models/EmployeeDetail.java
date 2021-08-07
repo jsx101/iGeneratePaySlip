@@ -13,7 +13,6 @@ public class EmployeeDetail {
     private Integer paymentMonth;
 
     public EmployeeDetail() {
-
     }
 
     public EmployeeDetail(String firstname, String lastname, Integer annualSalary, Double superRate, String paymentMonth) {
@@ -23,6 +22,19 @@ public class EmployeeDetail {
         this.superRate = superRate;
         this.paymentMonth = Integer.parseInt(paymentMonth);
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "\"firstname\":\"" + firstname + '"' +
+                ", \"lastname\":\"" + lastname + '"' +
+                ", \"annualSalary\":" + annualSalary +
+                ", \"superRate\":" + superRate +
+                ", \"paymentMonth\":" + paymentMonth +
+                '}';
+    }
+
+    // Getters and setters
 
     public String getFirstname() {
         return firstname;
@@ -62,16 +74,5 @@ public class EmployeeDetail {
 
     public void setPaymentMonth(Integer paymentMonth) {
         this.paymentMonth = paymentMonth;
-    }
-
-    @Override
-    public String toString() {
-        return "{" +
-                "\"firstname\":\"" + firstname + '"' +
-                ", \"lastname\":\"" + lastname + '"' +
-                ", \"annualSalary\":" + annualSalary +
-                ", \"superRate\":" + superRate +
-                ", \"paymentMonth\":" + paymentMonth +
-                '}';
     }
 }

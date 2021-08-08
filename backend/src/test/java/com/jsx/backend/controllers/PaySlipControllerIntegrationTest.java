@@ -17,10 +17,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest
-class ControllerIntegrationTest {
+class PaySlipControllerIntegrationTest {
     @Autowired
     private MockMvc mvc;
 
+    // Tests if PaySlipController will take a valid request and return payslip data in the correct form
     @Test
     void generatePaySlip() throws Exception {
         RequestBuilder request = MockMvcRequestBuilders
@@ -54,6 +55,7 @@ class ControllerIntegrationTest {
                 result.getResponse().getContentAsString());
     }
 
+    // Function to convert Object into JSON string
     public static String asJsonString(final Object obj) {
         try {
             final ObjectMapper mapper = new ObjectMapper();

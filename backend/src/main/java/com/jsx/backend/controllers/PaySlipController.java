@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path="api")
-public class Controller {
+public class PaySlipController {
+
+    // POST request with employee details
     @PostMapping(path="generate/pay-slip")
     public String generatePaySlip(@RequestBody EmployeeDetail employee) {
-        //System.out.println(employee.toString());
+
         PaySlip paySlip = new PaySlip(employee);
 
         paySlip.returnGrossIncomeAmount();

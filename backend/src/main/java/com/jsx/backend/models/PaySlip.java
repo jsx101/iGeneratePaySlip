@@ -4,6 +4,7 @@ import com.jsx.backend.models.pay_slip_functions.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class PaySlip {
+    // Employee and pay slip data
     private EmployeeDetail employee;
     private Integer grossIncome;
     private Integer incomeTax;
@@ -12,13 +13,10 @@ public class PaySlip {
     private String paymentStartDate;
     private String paymentEndDate;
 
-    //@Autowired
+    // Calculator objects
     private GrossIncomeCalculator grossIncomeCalculator;
-    //@Autowired
     private IncomeTaxCalculator incomeTaxCalculator;
-    //@Autowired
     private NetIncomeCalculator netIncomeCalculator;
-    //@Autowired
     private SuperannuationCalculator superannuationCalculator;
     private PaymentPeriodIdentifier paymentPeriodIdentifier;
 

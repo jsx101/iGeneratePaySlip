@@ -31,7 +31,7 @@ public class IncomeTaxCalculator {
             new IncomeTaxBracket(18201.0,37000.0,0.0,0.19,18200.0),
             new IncomeTaxBracket(37001.0,87000.0,3572.0,0.325,37000.0),
             new IncomeTaxBracket(87001.0,180000.0,19822.0,0.37,87000.0),
-            new IncomeTaxBracket(180000.0,Double.POSITIVE_INFINITY,54232.0,0.45,180000.0)
+            new IncomeTaxBracket(180001.0,Double.POSITIVE_INFINITY,54232.0,0.45,180000.0)
     );
 
     public IncomeTaxCalculator() {

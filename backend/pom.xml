@@ -40,6 +40,14 @@
 				<artifactId>frontend-maven-plugin</artifactId>
 				<version>1.12.0</version>
 			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<fork>true</fork>
+					<executable>C:\Program Files\Java\jdk-16.0.2\bin\javac.exe</executable>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 

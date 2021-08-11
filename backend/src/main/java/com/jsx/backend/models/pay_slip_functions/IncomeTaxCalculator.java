@@ -38,23 +38,7 @@ public class IncomeTaxCalculator {
     }
 
     public Integer calculate(Integer annualSalary) {
-
-        // Determines which tax bracket a given salary belongs in
-        if (annualSalary <= taxBrackets.get(0).incomeUpperLimit) {
-            return calculateForTaxIncomeColumn(annualSalary, 0);
-
-        } else if (annualSalary <= taxBrackets.get(1).incomeUpperLimit) {
-            return calculateForTaxIncomeColumn(annualSalary, 1);
-
-        } else if (annualSalary <= taxBrackets.get(2).incomeUpperLimit) {
-            return calculateForTaxIncomeColumn(annualSalary, 2);
-
-        } else if (annualSalary <= taxBrackets.get(3).incomeUpperLimit) {
-            return calculateForTaxIncomeColumn(annualSalary, 3);
-
-        } else {
-            return calculateForTaxIncomeColumn(annualSalary, 4);
-        }
+        return calculateForTaxIncomeColumn(annualSalary, salaryBelongsInThisTaxBracket(annualSalary));
     }
 
     private Integer calculateForTaxIncomeColumn(Integer annualSalary, Integer index) {
@@ -62,5 +46,24 @@ public class IncomeTaxCalculator {
         // A function to calculate the income tax amount based on the annual salary and which tax bracket it belongs in
         Double amountOver = annualSalary - taxBrackets.get(index).whenOverThisMuch;
         return (int) Math.round((taxBrackets.get(index).baseTax + amountOver*taxBrackets.get(index).taxPerDollar)/12);
+    }
+
+    private Integer salaryBelongsInThisTaxBracket(Integer annualSalary) {
+        // Determines which tax bracket a given salary belongs in
+        if (annualSalary <= taxBrackets.get(0).incomeUpperLimit) {
+            return 0;
+
+        } else if (annualSalary <= taxBrackets.get(1).incomeUpperLimit) {
+            return 1;
+
+        } else if (annualSalary <= taxBrackets.get(2).incomeUpperLimit) {
+            return 2;
+
+        } else if (annualSalary <= taxBrackets.get(3).incomeUpperLimit) {
+            return 3;
+
+        } else {
+            return 4;
+        }
     }
 }

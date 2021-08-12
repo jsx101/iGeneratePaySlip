@@ -1,8 +1,8 @@
-package com.jsx.backend.models.pay_slip_functions;
+package com.jsx.backend.models.payslip;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class PaymentPeriodIdentifier {
 
     public PaymentPeriodIdentifier() {

@@ -1,8 +1,18 @@
 package com.jsx.backend.models;
 
-import com.jsx.backend.models.pay_slip_functions.*;
+import com.jsx.backend.BackendApplication;
+import com.jsx.backend.models.payslip.*;
+import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracket;
+import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
+import java.util.stream.Stream;
+
+@ComponentScan
 public class PaySlip {
     // Employee and pay slip data
     private EmployeeDetail employee;
@@ -14,21 +24,41 @@ public class PaySlip {
     private String paymentEndDate;
 
     // Calculator objects
-    private GrossIncomeCalculator grossIncomeCalculator;
-    private IncomeTaxCalculator incomeTaxCalculator;
-    private NetIncomeCalculator netIncomeCalculator;
-    private SuperannuationCalculator superannuationCalculator;
-    private PaymentPeriodIdentifier paymentPeriodIdentifier;
-
     @Autowired
+    private GrossIncomeCalculator grossIncomeCalculator;
+    @Autowired
+    private IncomeTaxCalculator incomeTaxCalculator;
+    @Autowired
+    private NetIncomeCalculator netIncomeCalculator;
+    @Autowired
+    private SuperannuationCalculator superannuationCalculator;
+    @Autowired
+    private PaymentPeriodIdentifier paymentPeriodIdentifier;
+    /*@Autowired
+    private IncomeTaxBracketRepository incomeTaxBracketRepository;*/
+
+
     public PaySlip(EmployeeDetail employee) {
         this.employee = employee;
 
-        this.grossIncomeCalculator = new GrossIncomeCalculator();
-        this.incomeTaxCalculator = new IncomeTaxCalculator();
-        this.netIncomeCalculator = new NetIncomeCalculator();
-        this.superannuationCalculator = new SuperannuationCalculator();
-        this.paymentPeriodIdentifier = new PaymentPeriodIdentifier();
+        //System.out.println("Start of bean list");
+        ApplicationContext appCon = new AnnotationConfigApplicationContext(BackendApplication.class);
+        /*for(String beanName : appCon.getBeanDefinitionNames()) {
+            System.out.println(beanName);
+        }
+        System.out.println("End of bean list");*/
+
+        this.grossIncomeCalculator = appCon.getBean(GrossIncomeCalculator.class);
+        this.incomeTaxCalculator = appCon.getBean(IncomeTaxCalculator.class);
+        this.netIncomeCalculator = appCon.getBean(NetIncomeCalculator.class);
+        this.superannuationCalculator = appCon.getBean(SuperannuationCalculator.class);
+        this.paymentPeriodIdentifier = appCon.getBean(PaymentPeriodIdentifier.class);
+
+        /*System.out.println("Creating PaySlip and testing IncomeTaxBracketRepo");
+        this.incomeTaxBracketRepository = appCon.getBean(IncomeTaxBracketRepository.class);
+        Stream<IncomeTaxBracket> brackets = incomeTaxBracketRepository
+                .findIncomeTaxBracketByIncomeLowerLimitLessThanEqual(50060);
+         System.out.println(brackets.reduce((first, second) -> second).orElse(null));*/
     }
 
     public Integer returnGrossIncomeAmount() {

@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import org.springframework.stereotype.Service;
 
 @Service
-@ComponentScan
+//@ComponentScan
 public class NetIncomeCalculator {
 
     @Autowired

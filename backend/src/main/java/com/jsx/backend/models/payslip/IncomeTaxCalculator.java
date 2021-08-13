@@ -21,7 +21,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 @Service
-@ComponentScan
+//@ComponentScan
 public class IncomeTaxCalculator {
     @Autowired
     private IncomeTaxBracketService incomeTaxBracketService;

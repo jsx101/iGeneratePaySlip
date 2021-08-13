@@ -47,7 +47,7 @@ public class IncomeTaxCalculator {
 
     private IncomeTaxBracket salaryBelongsInThisTaxBracket(Integer annualSalary) {
         // Determines which tax bracket a given salary belongs in
-        System.out.println("Income Tax Calc.");
+        //System.out.println("Income Tax Calc.");
         final String uri = "http://localhost:8080/api/income-tax-bracket/get-one/" + annualSalary.toString();
 
         RestTemplate restTemplate = new RestTemplate();

@@ -1,12 +1,10 @@
 package com.jsx.backend.controllers;
 
-import com.jsx.backend.models.EmployeeDetail;
-import com.jsx.backend.models.PaySlip;
 import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracket;
 import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracketService;
+import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracketWithId;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,11 +23,26 @@ public class IncomeTaxBracketController {
         return incomeTaxBracketService.getAllBrackets();
     }
 
+    @PostMapping(path="insert")
+    public String insertIncomeTaxBracket(@RequestBody IncomeTaxBracket bracket) {
+        return incomeTaxBracketService.insertBracket(bracket);
+    }
+
+    @PostMapping(path="save")
+    public String insertIncomeTaxBracket(@RequestBody IncomeTaxBracketWithId bracketWithId) {
+        return incomeTaxBracketService.saveBracket(bracketWithId);
+    }
+
+    @PostMapping(path="delete")
+    public String deleteIncomeTaxBracket(@RequestBody IncomeTaxBracketWithId bracketWithId) {
+        return incomeTaxBracketService.deleteBracket(bracketWithId);
+    }
+
+
+
     @GetMapping("get-one/{annualSalary}")
     @ResponseBody
     public IncomeTaxBracket fetchOne(@PathVariable Integer annualSalary) {
-        /*PaySlip paySlip = new PaySlip(new EmployeeDetail("david", "rudd", 60050, 0.09, 1));
-        return paySlip.returnIncomeTaxAmount();*/
 
         return incomeTaxBracketService.getTaxBracketForSalary(annualSalary);
     }

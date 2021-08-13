@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 @Service
 @ComponentScan
 public class SuperannuationCalculator {
-    //@Autowired
+    @Autowired
     GrossIncomeCalculator grossIncomeCalculator;
 
-    @Autowired
+    /*@Autowired
     public SuperannuationCalculator(GrossIncomeCalculator grossIncomeCalculator) {
         this.grossIncomeCalculator = grossIncomeCalculator;
-    }
+    }*/
 
     public Integer calculate(Integer annualSalary, Double superRate) {
         Integer grossIncome = grossIncomeCalculator.calculate(annualSalary);

@@ -23,16 +23,15 @@ import java.util.stream.Stream;
 @Service
 @ComponentScan
 public class IncomeTaxCalculator {
-    //@Autowired
+    @Autowired
     private IncomeTaxBracketService incomeTaxBracketService;
     //private RestTemplate restTemplate;
 
-    @Autowired
-    public IncomeTaxCalculator(IncomeTaxBracketService incomeTaxBracketService/*, RestTemplate restTemplate*/) {
+    /*@Autowired
+    public IncomeTaxCalculator(IncomeTaxBracketService incomeTaxBracketService) {
         //ApplicationContext appCon = new AnnotationConfigApplicationContext(BackendApplication.class);
         this.incomeTaxBracketService=incomeTaxBracketService;
-        //this.restTemplate=restTemplate;
-    }
+    }*/
 
     public Integer calculate(Integer annualSalary) {
         return calculateGivenTheIncomeTaxBracket(annualSalary, salaryBelongsInThisTaxBracket(annualSalary));

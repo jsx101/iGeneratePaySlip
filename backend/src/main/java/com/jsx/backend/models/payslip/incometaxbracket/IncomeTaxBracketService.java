@@ -30,20 +30,10 @@ public class IncomeTaxBracketService {
     }
 
     public String saveBracket(IncomeTaxBracketWithId bracketWithId) {
-        String returnMessage = "";
-
-        Optional<IncomeTaxBracket> dbBracket = incomeTaxBracketRepository.findById(bracketWithId.getId());
-        if(dbBracket.isPresent()) {
-            incomeTaxBracketRepository.deleteById(bracketWithId.getId());
-            returnMessage += "Similar document detected in database; Document removed; ";
-        }
         IncomeTaxBracket bracket = bracketWithId.convertToIncomeTaxBracket();
         bracket.setId(bracketWithId.getId());
-        incomeTaxBracketRepository.insert(bracket);
-        returnMessage += "New document inserted";
-
-        return returnMessage;
-
+        incomeTaxBracketRepository.save(bracket);
+        return "Document saved";
     }
 
     public String insertBracket(IncomeTaxBracket bracket) {

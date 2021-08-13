@@ -41,12 +41,11 @@ public class PaySlip {
     public PaySlip(EmployeeDetail employee) {
         this.employee = employee;
 
-        //System.out.println("Start of bean list");
+        //System.out.println("In PaySlip");
         ApplicationContext appCon = new AnnotationConfigApplicationContext(BackendApplication.class);
         /*for(String beanName : appCon.getBeanDefinitionNames()) {
             System.out.println(beanName);
-        }
-        System.out.println("End of bean list");*/
+        }*/
 
         this.grossIncomeCalculator = appCon.getBean(GrossIncomeCalculator.class);
         this.incomeTaxCalculator = appCon.getBean(IncomeTaxCalculator.class);

@@ -41,12 +41,13 @@ public class PaySlip {
     public PaySlip(EmployeeDetail employee) {
         this.employee = employee;
 
-        //System.out.println("In PaySlip");
-        ApplicationContext appCon = new AnnotationConfigApplicationContext(BackendApplication.class);
-        /*for(String beanName : appCon.getBeanDefinitionNames()) {
+        /*System.out.println("In PaySlip");
+        ApplicationContext appConTemp = new AnnotationConfigApplicationContext(IncomeTaxCalculator.class);
+        for(String beanName : appConTemp.getBeanDefinitionNames()) {
             System.out.println(beanName);
         }*/
 
+        ApplicationContext appCon = new AnnotationConfigApplicationContext(BackendApplication.class);
         this.grossIncomeCalculator = appCon.getBean(GrossIncomeCalculator.class);
         this.incomeTaxCalculator = appCon.getBean(IncomeTaxCalculator.class);
         this.netIncomeCalculator = appCon.getBean(NetIncomeCalculator.class);

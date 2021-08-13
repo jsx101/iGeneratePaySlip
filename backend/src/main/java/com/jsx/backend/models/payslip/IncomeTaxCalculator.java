@@ -52,7 +52,8 @@ public class IncomeTaxCalculator {
         RestTemplate restTemplate = new RestTemplate();
         String bracket = restTemplate.getForObject(uri, String.class);
         return JsonStringToIncomeTaxBracket(bracket);
-        //return new JsonObject(bracket);
+
+        //return incomeTaxBracketService.getTaxBracketForSalary(annualSalary);
 
         //return this.incomeTaxBracketController.fetchOne(annualSalary);
 

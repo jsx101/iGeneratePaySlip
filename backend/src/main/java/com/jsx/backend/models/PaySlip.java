@@ -2,15 +2,11 @@ package com.jsx.backend.models;
 
 import com.jsx.backend.BackendApplication;
 import com.jsx.backend.models.payslip.*;
-import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracket;
-import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-import java.util.stream.Stream;
 
 @ComponentScan
 public class PaySlip {

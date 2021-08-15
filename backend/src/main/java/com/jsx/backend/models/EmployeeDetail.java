@@ -1,10 +1,8 @@
 package com.jsx.backend.models;
 
-import org.springframework.stereotype.Component;
 import java.lang.String;
-import java.time.LocalDate;
 
-//@Component
+
 public class EmployeeDetail {
     private String firstname;
     private String lastname;

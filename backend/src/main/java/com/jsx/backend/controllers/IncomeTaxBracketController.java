@@ -4,7 +4,6 @@ import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracket;
 import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracketService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -1,24 +1,10 @@
 package com.jsx.backend.models.payslip;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.jsx.backend.BackendApplication;
-import com.jsx.backend.controllers.IncomeTaxBracketController;
 import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracket;
-import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracketRepository;
 import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracketService;
-import lombok.AllArgsConstructor;
-import org.bson.json.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Stream;
 
 @Service
 //@ComponentScan

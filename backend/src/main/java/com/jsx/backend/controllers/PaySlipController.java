@@ -2,26 +2,16 @@ package com.jsx.backend.controllers;
 
 import com.jsx.backend.models.EmployeeDetail;
 import com.jsx.backend.models.PaySlip;
-import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracket;
-import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracketRepository;
-import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracketService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 @RestController
 @RequestMapping(path="api/pay-slip")
 @AllArgsConstructor
 public class PaySlipController {
-
-    //@Autowired
-    private final IncomeTaxBracketService incomeTaxBracketService;
-    private final IncomeTaxBracketRepository incomeTaxBracketRepository;
 
     // POST request with employee details
     @PostMapping(path="generate")

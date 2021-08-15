@@ -22,13 +22,6 @@ public class PaySlipController {
     // POST request with employee details
     @PostMapping(path="generate")
     public String generatePaySlip(@RequestBody List<EmployeeDetail> employees) {
-
-        List<PaySlip> paySlips = new ArrayList<>();
-
-        for(int i=0; i< employees.size(); i++){
-            paySlips.add(paySlipGenerator.returnPaySlip(employees.get(i)));
-        }
-
-        return paySlips.toString();
+        return paySlipGenerator.returnPaySlips(employees).toString();
     }
 }

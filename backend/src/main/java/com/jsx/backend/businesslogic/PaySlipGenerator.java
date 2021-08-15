@@ -7,6 +7,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class PaySlipGenerator {
@@ -20,6 +23,15 @@ public class PaySlipGenerator {
     private PaymentPeriodIdentifier paymentPeriodIdentifier;
     @Autowired
     private SuperannuationCalculator superannuationCalculator;
+
+
+    public List<PaySlip> returnPaySlips(List<EmployeeDetail> employees) {
+        List<PaySlip> paySlips = new ArrayList<>();
+        for(int i=0; i< employees.size(); i++){
+            paySlips.add(returnPaySlip(employees.get(i)));
+        }
+        return paySlips;
+    }
 
     public PaySlip returnPaySlip(EmployeeDetail employee) {
         Integer grossIncome = grossIncomeCalculator.calculate(employee.getAnnualSalary());

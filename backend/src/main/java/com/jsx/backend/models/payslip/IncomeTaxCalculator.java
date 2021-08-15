@@ -29,15 +29,15 @@ public class IncomeTaxCalculator {
         // Temporary solution by having the app make an API call to itself
         // It works, but will only pass unit testing when the app is running in the background
         // Does not pass when I run "mvn clean install" on the command line
-        final String uri = "http://localhost:8080/api/income-tax-bracket/get-one/" + annualSalary.toString();
+        /*final String uri = "http://localhost:8080/api/income-tax-bracket/get-one/" + annualSalary.toString();
 
         RestTemplate restTemplate = new RestTemplate();
         String bracket = restTemplate.getForObject(uri, String.class);
-        return JsonStringToIncomeTaxBracket(bracket);
+        return JsonStringToIncomeTaxBracket(bracket);*/
 
 
         // Preferred implementation by calling IncomeTaxBracketService instance
-        //return incomeTaxBracketService.getTaxBracketForSalary(annualSalary);
+        return incomeTaxBracketService.getTaxBracketForSalary(annualSalary);
 
 
         // Tried using IncomeTaxBracketController instance since it works in the Controllers package

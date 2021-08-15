@@ -8,7 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.ComponentScan;
 
 
-@ComponentScan
+//@ComponentScan
 public class PaySlip {
     // Employee and pay slip data
     private EmployeeDetail employee;
@@ -20,7 +20,7 @@ public class PaySlip {
     private String paymentEndDate;
 
     // Calculator objects
-    @Autowired
+    /*@Autowired
     private GrossIncomeCalculator grossIncomeCalculator;
     @Autowired
     private IncomeTaxCalculator incomeTaxCalculator;
@@ -29,21 +29,34 @@ public class PaySlip {
     @Autowired
     private SuperannuationCalculator superannuationCalculator;
     @Autowired
-    private PaymentPeriodIdentifier paymentPeriodIdentifier;
+    private PaymentPeriodIdentifier paymentPeriodIdentifier;*/
 
 
-    public PaySlip(EmployeeDetail employee) {
+    public PaySlip(EmployeeDetail employee,
+                   Integer grossIncome,
+                   Integer incomeTax,
+                   Integer netIncome,
+                   Integer superannuation,
+                   String startDate,
+                   String endDate
+    ) {
         this.employee = employee;
+        this.grossIncome = grossIncome;
+        this.incomeTax = incomeTax;
+        this.netIncome = netIncome;
+        this.superannuation = superannuation;
+        this.paymentStartDate = startDate;
+        this.paymentEndDate = endDate;
 
-        ApplicationContext appCon = new AnnotationConfigApplicationContext(BackendApplication.class);
+        /*ApplicationContext appCon = new AnnotationConfigApplicationContext(BackendApplication.class);
         this.grossIncomeCalculator = appCon.getBean(GrossIncomeCalculator.class);
         this.incomeTaxCalculator = appCon.getBean(IncomeTaxCalculator.class);
         this.netIncomeCalculator = appCon.getBean(NetIncomeCalculator.class);
         this.superannuationCalculator = appCon.getBean(SuperannuationCalculator.class);
-        this.paymentPeriodIdentifier = appCon.getBean(PaymentPeriodIdentifier.class);
+        this.paymentPeriodIdentifier = appCon.getBean(PaymentPeriodIdentifier.class);*/
     }
 
-    public Integer returnGrossIncomeAmount() {
+    /*public Integer returnGrossIncomeAmount() {
         this.grossIncome = grossIncomeCalculator.calculate(employee.getAnnualSalary());
         return this.grossIncome;
     }
@@ -101,7 +114,7 @@ public class PaySlip {
     public String returnPaymentEndDate(Integer paymentMonth) {
         this.paymentEndDate = paymentPeriodIdentifier.getPaymentEndDate(paymentMonth);
         return this.paymentEndDate;
-    }
+    }*/
 
     @Override
     public String toString() {
@@ -122,7 +135,7 @@ public class PaySlip {
         return employee;
     }
 
-    public void setEmployee(EmployeeDetail employee) {
+    /*public void setEmployee(EmployeeDetail employee) {
         this.employee = employee;
         this.returnGrossIncomeAmount();
         this.returnIncomeTaxAmount();
@@ -130,7 +143,7 @@ public class PaySlip {
         this.returnSuperannuation();
         this.returnPaymentStartDate();
         this.returnPaymentEndDate();
-    }
+    }*/
 
     public Integer getIncomeTax() {
         return incomeTax;

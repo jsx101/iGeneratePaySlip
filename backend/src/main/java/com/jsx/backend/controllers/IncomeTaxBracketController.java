@@ -2,7 +2,7 @@ package com.jsx.backend.controllers;
 
 import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracket;
 import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracketService;
-import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracketWithId;
+import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracketWithIdInConstructor;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -29,17 +29,18 @@ public class IncomeTaxBracketController {
     }
 
     @PostMapping(path="save")
-    public String insertIncomeTaxBracket(@RequestBody IncomeTaxBracketWithId bracketWithId) {
+    public String insertIncomeTaxBracket(@RequestBody IncomeTaxBracketWithIdInConstructor bracketWithId) {
         return incomeTaxBracketService.saveBracket(bracketWithId);
     }
 
     @PostMapping(path="delete")
-    public String deleteIncomeTaxBracket(@RequestBody IncomeTaxBracketWithId bracketWithId) {
+    public String deleteIncomeTaxBracket(@RequestBody IncomeTaxBracketWithIdInConstructor bracketWithId) {
         return incomeTaxBracketService.deleteBracket(bracketWithId);
     }
 
 
-
+    // To test if the IncomeTaxBracketService and Repository works when called in the Controllers package
+    // It works
     @GetMapping("get-one/{annualSalary}")
     @ResponseBody
     public IncomeTaxBracket fetchOne(@PathVariable Integer annualSalary) {

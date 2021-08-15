@@ -46,26 +46,35 @@ public class IncomeTaxCalculator {
 
     private IncomeTaxBracket salaryBelongsInThisTaxBracket(Integer annualSalary) {
         // Determines which tax bracket a given salary belongs in
-        //System.out.println("Income Tax Calc.");
+
+        // Temporary solution by having the app make an API call to itself
+        // It works, but will only pass unit testing when the app is running in the background
+        // Does not pass when I run "mvn clean install" on the command line
         final String uri = "http://localhost:8080/api/income-tax-bracket/get-one/" + annualSalary.toString();
 
         RestTemplate restTemplate = new RestTemplate();
         String bracket = restTemplate.getForObject(uri, String.class);
         return JsonStringToIncomeTaxBracket(bracket);
 
+
+        // Preferred implementation by calling IncomeTaxBracketService instance
         //return incomeTaxBracketService.getTaxBracketForSalary(annualSalary);
 
+
+        // Tried using IncomeTaxBracketController instance since it works in the Controllers package
+        // Doesn't work
         //return this.incomeTaxBracketController.fetchOne(annualSalary);
 
-        //System.out.println(this.incomeTaxBracketService.getAllBrackets());
+
+        // Tried calling IncomeTaxBracketRepository itself
+        // Doesn't work
         /*Stream<IncomeTaxBracket> brackets = incomeTaxBracketRepository
                 .findIncomeTaxBracketByIncomeLowerLimitLessThanEqual(annualSalary);
         return brackets.reduce((first, second) -> second).orElse(null);*/
-
-        //return new IncomeTaxBracket(0.0, 18200.0, 0.0,0.0,0.0);
     }
 
     private IncomeTaxBracket JsonStringToIncomeTaxBracket(String json) {
+        // Converts JSON string to IncomeTaxBracket object
 
         //String id = extractValueFromJsonString(json, "\"id\":");
         Double incomeLowerLimit = Double.parseDouble(extractValueFromJsonString(json, "\"incomeLowerLimit\":"));
@@ -93,6 +102,7 @@ public class IncomeTaxCalculator {
     }
 
     private String extractValueFromJsonString(String json, String key) {
+        // Gets the key string (with double-quotes and colon) and returns its corresponding value in the JSON string
         int keyStart = json.indexOf(key);
         int keyLength = key.length();
 

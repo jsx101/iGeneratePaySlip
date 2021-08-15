@@ -34,18 +34,10 @@ public class PaySlip {
     private SuperannuationCalculator superannuationCalculator;
     @Autowired
     private PaymentPeriodIdentifier paymentPeriodIdentifier;
-    /*@Autowired
-    private IncomeTaxBracketRepository incomeTaxBracketRepository;*/
 
 
     public PaySlip(EmployeeDetail employee) {
         this.employee = employee;
-
-        /*System.out.println("In PaySlip");
-        ApplicationContext appConTemp = new AnnotationConfigApplicationContext(IncomeTaxCalculator.class);
-        for(String beanName : appConTemp.getBeanDefinitionNames()) {
-            System.out.println(beanName);
-        }*/
 
         ApplicationContext appCon = new AnnotationConfigApplicationContext(BackendApplication.class);
         this.grossIncomeCalculator = appCon.getBean(GrossIncomeCalculator.class);
@@ -53,12 +45,6 @@ public class PaySlip {
         this.netIncomeCalculator = appCon.getBean(NetIncomeCalculator.class);
         this.superannuationCalculator = appCon.getBean(SuperannuationCalculator.class);
         this.paymentPeriodIdentifier = appCon.getBean(PaymentPeriodIdentifier.class);
-
-        /*System.out.println("Creating PaySlip and testing IncomeTaxBracketRepo");
-        this.incomeTaxBracketRepository = appCon.getBean(IncomeTaxBracketRepository.class);
-        Stream<IncomeTaxBracket> brackets = incomeTaxBracketRepository
-                .findIncomeTaxBracketByIncomeLowerLimitLessThanEqual(50060);
-         System.out.println(brackets.reduce((first, second) -> second).orElse(null));*/
     }
 
     public Integer returnGrossIncomeAmount() {

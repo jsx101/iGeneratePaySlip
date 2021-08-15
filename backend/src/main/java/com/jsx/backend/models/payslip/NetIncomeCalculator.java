@@ -14,12 +14,6 @@ public class NetIncomeCalculator {
     @Autowired
     IncomeTaxCalculator incomeTaxCalculator;
 
-    /*@Autowired
-    public NetIncomeCalculator(GrossIncomeCalculator grossIncomeCalculator, IncomeTaxCalculator incomeTaxCalculator) {
-        this.grossIncomeCalculator = grossIncomeCalculator;
-        this.incomeTaxCalculator = incomeTaxCalculator;
-    }*/
-
     public Integer calculate(Integer annualSalary) {
         Integer grossIncome = grossIncomeCalculator.calculate(annualSalary);
         Integer incomeTax = incomeTaxCalculator.calculate(annualSalary);

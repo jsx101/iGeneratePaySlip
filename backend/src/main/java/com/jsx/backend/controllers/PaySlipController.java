@@ -43,12 +43,11 @@ public class PaySlipController {
         return paySlips.toString();
     }
 
+    // To test a PaySlip instance can successfully call IncomeTaxBracketService and Repository in Controllers package
+    // It works
     @GetMapping(path="income-tax/get")
     public Integer getGrossIncome() {
-        //return incomeTaxBracketRepository.findIncomeTaxBracketByIncomeLowerLimitLessThanEqual(50060);
-
         PaySlip paySlip = new PaySlip(new EmployeeDetail("david", "rudd", 90050, 0.09, 1));
         return paySlip.returnIncomeTaxAmount();
-        //return incomeTaxBracketService.getTaxBracketForSalary(50060);
     }
 }

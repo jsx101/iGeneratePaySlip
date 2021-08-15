@@ -11,11 +11,6 @@ public class SuperannuationCalculator {
     @Autowired
     GrossIncomeCalculator grossIncomeCalculator;
 
-    /*@Autowired
-    public SuperannuationCalculator(GrossIncomeCalculator grossIncomeCalculator) {
-        this.grossIncomeCalculator = grossIncomeCalculator;
-    }*/
-
     public Integer calculate(Integer annualSalary, Double superRate) {
         Integer grossIncome = grossIncomeCalculator.calculate(annualSalary);
         return (int) Math.round(grossIncome*superRate);

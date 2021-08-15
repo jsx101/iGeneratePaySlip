@@ -24,9 +24,7 @@ public class IncomeTaxBracketService {
         return brackets.reduce((first, second) -> second).orElse(null);
     }
 
-    public String saveBracket(IncomeTaxBracketWithIdInConstructor bracketWithId) {
-        IncomeTaxBracket bracket = bracketWithId.convertToIncomeTaxBracket();
-        bracket.setId(bracketWithId.getId());
+    public String saveBracket(IncomeTaxBracket bracket) {
         incomeTaxBracketRepository.save(bracket);
         return "Document saved";
     }
@@ -36,7 +34,8 @@ public class IncomeTaxBracketService {
         return "New document inserted";
     }
 
-    public String deleteBracket(IncomeTaxBracketWithIdInConstructor bracketWithId) {
+    public String deleteBracket(IncomeTaxBracket bracketWithId) {
+        if(bracketWithId.getId() == null) return "Please put in the ID";
         Optional<IncomeTaxBracket> dbBracket = incomeTaxBracketRepository.findById(bracketWithId.getId());
         if(dbBracket.isPresent()){
             if (bracketWithId.isSimilarTo(dbBracket.get())) {

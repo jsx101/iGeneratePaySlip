@@ -27,6 +27,17 @@ public class IncomeTaxBracket {
         this.whenOverThisMuch = whenOverThisMuch;
     }
 
+    public Boolean isSimilarTo(IncomeTaxBracket bracketWithoutId) {
+        boolean lowerLimitEquals = this.incomeLowerLimit.equals(bracketWithoutId.getIncomeLowerLimit());
+        boolean upperLimitEquals = this.incomeUpperLimit.equals(bracketWithoutId.getIncomeUpperLimit());
+        boolean baseTaxEquals = this.baseTax.equals(bracketWithoutId.getBaseTax());
+        boolean taxPerDollarEquals = this.taxPerDollar.equals(bracketWithoutId.getTaxPerDollar());
+        boolean whenOverThisMuchEquals = this.whenOverThisMuch.equals(bracketWithoutId.getWhenOverThisMuch());
+
+        return lowerLimitEquals && upperLimitEquals && baseTaxEquals && taxPerDollarEquals && whenOverThisMuchEquals;
+    }
+
+    // Getters and setters
     public String getId() {
         return id;
     }
@@ -34,20 +45,6 @@ public class IncomeTaxBracket {
     public void setId(String id) {
         this.id = id;
     }
-
-    /*public IncomeTaxBracket(String id,
-                            Double incomeLowerLimit,
-                            Double incomeUpperLimit,
-                            Double baseTax,
-                            Double taxPerDollar,
-                            Double whenOverThisMuch) {
-        this.id = id;
-        this.incomeLowerLimit = incomeLowerLimit;
-        this.incomeUpperLimit = incomeUpperLimit;
-        this.baseTax = baseTax;
-        this.taxPerDollar = taxPerDollar;
-        this.whenOverThisMuch = whenOverThisMuch;
-    }*/
 
     public Double getIncomeLowerLimit() {
         return incomeLowerLimit;

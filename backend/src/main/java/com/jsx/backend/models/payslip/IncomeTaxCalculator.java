@@ -25,13 +25,6 @@ import java.util.stream.Stream;
 public class IncomeTaxCalculator {
     @Autowired
     private IncomeTaxBracketService incomeTaxBracketService;
-    //private RestTemplate restTemplate;
-
-    /*@Autowired
-    public IncomeTaxCalculator(IncomeTaxBracketService incomeTaxBracketService) {
-        //ApplicationContext appCon = new AnnotationConfigApplicationContext(BackendApplication.class);
-        this.incomeTaxBracketService=incomeTaxBracketService;
-    }*/
 
     public Integer calculate(Integer annualSalary) {
         return calculateGivenTheIncomeTaxBracket(annualSalary, salaryBelongsInThisTaxBracket(annualSalary));

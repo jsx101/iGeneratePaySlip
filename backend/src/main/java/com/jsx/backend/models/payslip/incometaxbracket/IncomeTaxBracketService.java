@@ -11,13 +11,8 @@ import java.util.stream.Stream;
 @Service
 public class IncomeTaxBracketService {
 
-    //@Autowired
-    private IncomeTaxBracketRepository incomeTaxBracketRepository;
-
     @Autowired
-    public IncomeTaxBracketService(IncomeTaxBracketRepository incomeTaxBracketRepository){
-        this.incomeTaxBracketRepository = incomeTaxBracketRepository;
-    }
+    private IncomeTaxBracketRepository incomeTaxBracketRepository;
 
     public List<IncomeTaxBracket> getAllBrackets() {
         return incomeTaxBracketRepository.findAll();

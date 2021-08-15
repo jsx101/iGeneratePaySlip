@@ -4,10 +4,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jsx.backend.businesslogic.PaySlipGenerator;
 import com.jsx.backend.models.EmployeeDetail;
 import com.jsx.backend.models.PaySlip;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -25,59 +27,19 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
-@ExtendWith(SpringExtension.class)
-@WebMvcTest(controllers = PaySlipController.class)
-/*@RunWith(SpringRunner.class)
-@SpringBootTest*/
-class PaySlipControllerIntegrationTest {
+/*@ExtendWith(SpringExtension.class)
+@WebMvcTest(controllers = PaySlipController.class)*/
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@AutoConfigureMockMvc
+@DisplayName("Pay slip controller integration test")
+class PaySlipControllerTest {
     @Autowired
     private MockMvc mvc;
 
-    @MockBean
-    private PaySlipGenerator paySlipGenerator;
-
-    // Tests if PaySlipController will take a valid request and return payslip data in the correct form
     @Test
+    @DisplayName("Tests if PaySlipController will take a valid request and return payslip data in the correct form")
     void generatePaySlip() throws Exception {
-        List<EmployeeDetail> employees = List.of(
-                new EmployeeDetail(
-                        "David",
-                        "Rudd",
-                        90500,
-                        0.09,
-                        1
-                ),
-                new EmployeeDetail(
-                        "Ryan",
-                        "Chen",
-                        120000,
-                        0.1,
-                        5
-                )
-        );
-
-        List<PaySlip> expectedOutput = List.of(
-                new PaySlip(
-                        employees.get(0),
-                        7542,
-                        1760,
-                        5782,
-                        679,
-                        "01 February",
-                        "28 February"
-                ),
-                new PaySlip(
-                        employees.get(1),
-                        10000,
-                        2669,
-                        7331,
-                        1000,
-                        "01 June",
-                        "30 June"
-                )
-        );
-
-        when(this.paySlipGenerator.returnPaySlips(employees)).thenReturn(expectedOutput);
 
         RequestBuilder request = MockMvcRequestBuilders
             .post("/api/pay-slip/generate")

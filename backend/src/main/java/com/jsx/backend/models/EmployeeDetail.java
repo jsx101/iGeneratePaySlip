@@ -1,6 +1,7 @@
 package com.jsx.backend.models;
 
 import java.lang.String;
+import java.util.Objects;
 
 
 public class EmployeeDetail {
@@ -30,6 +31,19 @@ public class EmployeeDetail {
                 ", \"superRate\":" + superRate +
                 ", \"paymentMonth\":" + paymentMonth +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof EmployeeDetail)) return false;
+        EmployeeDetail that = (EmployeeDetail) o;
+        return Objects.equals(getFirstname(), that.getFirstname()) && Objects.equals(getLastname(), that.getLastname()) && Objects.equals(getAnnualSalary(), that.getAnnualSalary()) && Objects.equals(getSuperRate(), that.getSuperRate()) && Objects.equals(getPaymentMonth(), that.getPaymentMonth());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFirstname(), getLastname(), getAnnualSalary(), getSuperRate(), getPaymentMonth());
     }
 
     // Getters and setters

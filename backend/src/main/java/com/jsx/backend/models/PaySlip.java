@@ -1,6 +1,8 @@
 package com.jsx.backend.models;
 
 
+import java.util.Objects;
+
 //@ComponentScan
 public class PaySlip {
     // Employee and pay slip data
@@ -42,10 +44,28 @@ public class PaySlip {
                 '}';
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PaySlip)) return false;
+        PaySlip paySlip = (PaySlip) o;
+        return Objects.equals(getEmployee(), paySlip.getEmployee()) && Objects.equals(getGrossIncome(), paySlip.getGrossIncome()) && Objects.equals(getIncomeTax(), paySlip.getIncomeTax()) && Objects.equals(getNetIncome(), paySlip.getNetIncome()) && Objects.equals(getSuperannuation(), paySlip.getSuperannuation()) && Objects.equals(getPaymentStartDate(), paySlip.getPaymentStartDate()) && Objects.equals(getPaymentEndDate(), paySlip.getPaymentEndDate());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getEmployee(), getGrossIncome(), getIncomeTax(), getNetIncome(), getSuperannuation(), getPaymentStartDate(), getPaymentEndDate());
+    }
+
     // Getters
 
     public EmployeeDetail getEmployee() {
         return employee;
+    }
+
+    public Integer getGrossIncome() {
+        return grossIncome;
     }
 
     public Integer getIncomeTax() {

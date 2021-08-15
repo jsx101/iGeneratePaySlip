@@ -3,10 +3,12 @@ package com.jsx.backend.businesslogic;
 import com.jsx.backend.models.EmployeeDetail;
 import com.jsx.backend.models.PaySlip;
 import com.jsx.backend.businesslogic.payslip.*;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class PaySlipGenerator {
     @Autowired
     private GrossIncomeCalculator grossIncomeCalculator;

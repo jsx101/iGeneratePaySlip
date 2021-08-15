@@ -29,9 +29,6 @@ public class IncomeTaxBracketWithIdInConstructor {
         boolean taxPerDollarEquals = this.taxPerDollar.equals(bracketWithoutId.getTaxPerDollar());
         boolean whenOverThisMuchEquals = this.whenOverThisMuch.equals(bracketWithoutId.getWhenOverThisMuch());
 
-        System.out.println(lowerLimitEquals);
-        System.out.println(this.incomeUpperLimit.isInfinite());
-
         return lowerLimitEquals && upperLimitEquals && baseTaxEquals && taxPerDollarEquals && whenOverThisMuchEquals;
     }
 

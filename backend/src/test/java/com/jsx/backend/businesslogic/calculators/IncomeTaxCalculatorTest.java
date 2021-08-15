@@ -1,5 +1,6 @@
 package com.jsx.backend.businesslogic.calculators;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +12,13 @@ import static org.mockito.Mockito.mock;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@DisplayName("Income tax calculator")
 class IncomeTaxCalculatorTest {
     @Autowired
     IncomeTaxCalculator incomeTaxCalculator;
 
     @Test
+    @DisplayName("Tests at least one annual salary value for each income tax bracket")
     void returnIncomeTaxAmount() {
 
         // $0 - $18200

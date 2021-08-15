@@ -1,5 +1,6 @@
 package com.jsx.backend.businesslogic.calculators;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +11,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@DisplayName("Superannuation calculator test")
 class SuperannuationCalculatorTest {
 
     @Autowired
     SuperannuationCalculator superannuationCalculator;
 
     @Test
+    @DisplayName("Testing a range of annual salaries and superannuation rates combinations")
     void returnSuperannuation() {
         Integer superannuation0 = superannuationCalculator.calculate(12006,0.1);
         assertEquals(100,superannuation0);

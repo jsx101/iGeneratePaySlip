@@ -1,5 +1,6 @@
 package com.jsx.backend.businesslogic.calculators;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +11,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@DisplayName("Net income calculator")
 class NetIncomeCalculatorTest {
 
     @Autowired
     NetIncomeCalculator netIncomeCalculator;
 
     @Test
+    @DisplayName("Tests at least one annual salary value for each income tax bracket")
     void returnNetIncome() {
         // $0 - $18200
         Integer netIncome0 = netIncomeCalculator.calculate(12006);

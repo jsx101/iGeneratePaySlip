@@ -17,8 +17,6 @@ import java.util.List;
 public class PaySlipController {
 
     @Autowired
-    private NetIncomeCalculator netIncomeCalculator;
-    @Autowired
     private PaySlipGenerator paySlipGenerator;
 
     // POST request with employee details

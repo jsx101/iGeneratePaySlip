@@ -1,16 +1,19 @@
 package com.jsx.backend.businesslogic.calculators;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@DisplayName("Payment period identifier")
 class PaymentPeriodIdentifierTest {
 
     @Autowired
     PaymentPeriodIdentifier paymentPeriodIdentifier;
 
     @Test
+    @DisplayName("Test all 12 months. Expected outputs are the first date of every month")
     void returnPaymentStartDate() {
         String startDate0 = paymentPeriodIdentifier.getPaymentStartDate(0);
         assertEquals("01 January", startDate0);
@@ -50,6 +53,7 @@ class PaymentPeriodIdentifierTest {
     }
 
     @Test
+    @DisplayName("Test all 12 months. Expected outputs are the last date of every month")
     void returnPaymentEndDate() {
         String startDate0 = paymentPeriodIdentifier.getPaymentEndDate(0);
         assertEquals("31 January", startDate0);

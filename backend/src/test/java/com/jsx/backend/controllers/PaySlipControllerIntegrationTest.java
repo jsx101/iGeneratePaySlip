@@ -13,6 +13,8 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.io.FilenameFilter;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
@@ -25,34 +27,60 @@ class PaySlipControllerIntegrationTest {
     @Test
     void generatePaySlip() throws Exception {
         RequestBuilder request = MockMvcRequestBuilders
-                .post("/api/generate/pay-slip")
-                .content(asJsonString(new EmployeeDetail(
-                        "David",
-                        "Rudd",
-                        12006,
-                        0.09,
-                        3
-                )))
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON);
+            .post("/api/pay-slip/generate")
+            .content("[" +
+                "{" +
+                    "\"firstname\": \"David\"," +
+                    "\"lastname\": \"Rudd\"," +
+                    "\"annualSalary\": 90500," +
+                    "\"superRate\": 0.09," +
+                    "\"paymentMonth\": \"1\"" +
+                "}," +
+                "{" +
+                    "\"firstname\": \"Ryan\"," +
+                    "\"lastname\": \"Chen\"," +
+                    "\"annualSalary\": 120000," +
+                    "\"superRate\": 0.1," +
+                    "\"paymentMonth\": \"5\"" +
+                "}" +
+            "]")
+            .contentType(MediaType.APPLICATION_JSON)
+            .accept(MediaType.APPLICATION_JSON);
 
         MvcResult result = mvc.perform(request).andReturn();
-        assertEquals("{" +
-                    "\"employee\":{" +
-                        "\"firstname\":\"David\", " +
-                        "\"lastname\":\"Rudd\", " +
-                        "\"annualSalary\":12006, " +
-                        "\"superRate\":0.09, " +
-                        "\"paymentMonth\":3" +
-                    "}, " +
-                    "\"grossIncome\":1001, " +
-                    "\"incomeTax\":0, " +
-                    "\"netIncome\":1001, " +
-                    "\"superannuation\":90, " +
-                    "\"paymentStartDate\":\"01 April\", " +
-                    "\"paymentEndDate\":\"30 April\"" +
-                "}",
-                result.getResponse().getContentAsString());
+        assertEquals("[" +
+            "{" +
+                "\"employee\":{" +
+                    "\"firstname\":\"David\", " +
+                    "\"lastname\":\"Rudd\", " +
+                    "\"annualSalary\":90500, " +
+                    "\"superRate\":0.09, " +
+                    "\"paymentMonth\":1" +
+                "}, " +
+                "\"grossIncome\":7542, " +
+                "\"incomeTax\":1760, " +
+                "\"netIncome\":5782, " +
+                "\"superannuation\":679, " +
+                "\"paymentStartDate\":\"01 February\", " +
+                "\"paymentEndDate\":\"28 February\"" +
+            "}, " +
+            "{" +
+                "\"employee\":{" +
+                    "\"firstname\":\"Ryan\", " +
+                    "\"lastname\":\"Chen\", " +
+                    "\"annualSalary\":120000, " +
+                    "\"superRate\":0.1, " +
+                    "\"paymentMonth\":5" +
+                "}, " +
+                "\"grossIncome\":10000, " +
+                "\"incomeTax\":2669, " +
+                "\"netIncome\":7331, " +
+                "\"superannuation\":1000, " +
+                "\"paymentStartDate\":\"01 June\", " +
+                "\"paymentEndDate\":\"30 June\"" +
+            "}" +
+        "]",
+        result.getResponse().getContentAsString());
     }
 
     // Function to convert Object into JSON string

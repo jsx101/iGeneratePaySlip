@@ -1,5 +1,6 @@
 package com.jsx.backend.businesslogic.payslip.incometaxbracket;
 
+import com.jsx.backend.models.IncomeTaxBracket;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

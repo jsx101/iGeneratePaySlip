@@ -1,6 +1,6 @@
 package com.jsx.backend.models.payslip.incometaxbracket;
 
-public class IncomeTaxBracketWithId {
+public class IncomeTaxBracketWithIdInConstructor {
     private String id;
     private Double incomeLowerLimit;
     private Double incomeUpperLimit;
@@ -8,12 +8,12 @@ public class IncomeTaxBracketWithId {
     private Double taxPerDollar;
     private Double whenOverThisMuch;
 
-    public IncomeTaxBracketWithId(String id,
-                            Double incomeLowerLimit,
-                            Double incomeUpperLimit,
-                            Double baseTax,
-                            Double taxPerDollar,
-                            Double whenOverThisMuch) {
+    public IncomeTaxBracketWithIdInConstructor(String id,
+                                               Double incomeLowerLimit,
+                                               Double incomeUpperLimit,
+                                               Double baseTax,
+                                               Double taxPerDollar,
+                                               Double whenOverThisMuch) {
         this.id = id;
         this.incomeLowerLimit = incomeLowerLimit;
         this.incomeUpperLimit = incomeUpperLimit;

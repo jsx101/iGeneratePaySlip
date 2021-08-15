@@ -33,11 +33,4 @@ public class PaySlipController {
 
         return paySlips.toString();
     }
-
-    // To test a PaySlip instance can successfully call IncomeTaxBracketService and Repository in Controllers package
-    // It works
-    @GetMapping(path="income-tax/get")
-    public Integer getGrossIncome() {
-        return netIncomeCalculator.calculate(40000);
-    }
 }

@@ -41,14 +41,4 @@ public class IncomeTaxBracketController {
         // If no id is provided, or if one data does not match, the document is not deleted
         return incomeTaxBracketService.deleteBracket(bracketWithId);
     }
-
-
-    // To test if the IncomeTaxBracketService and Repository works when called in the Controllers package
-    // It works
-    @GetMapping("get-one/{annualSalary}")
-    @ResponseBody
-    public IncomeTaxBracket fetchOne(@PathVariable Integer annualSalary) {
-
-        return incomeTaxBracketService.getTaxBracketForSalary(annualSalary);
-    }
 }

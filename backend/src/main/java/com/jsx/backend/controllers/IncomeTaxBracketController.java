@@ -29,7 +29,7 @@ public class IncomeTaxBracketController {
     }
 
     @PostMapping(path="save")
-    public String insertIncomeTaxBracket(@RequestBody IncomeTaxBracketWithIdInConstructor bracketWithId) {
+    public String saveIncomeTaxBracket(@RequestBody IncomeTaxBracketWithIdInConstructor bracketWithId) {
         return incomeTaxBracketService.saveBracket(bracketWithId);
     }
 

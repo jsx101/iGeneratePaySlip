@@ -1,4 +1,4 @@
-package com.jsx.backend.models.payslip.incometaxbracket;
+package com.jsx.backend.businesslogic.payslip.incometaxbracket;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

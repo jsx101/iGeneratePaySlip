@@ -1,4 +1,4 @@
-package com.jsx.backend.models.payslip;
+package com.jsx.backend.businesslogic.payslip;
 
 import org.springframework.stereotype.Service;
 

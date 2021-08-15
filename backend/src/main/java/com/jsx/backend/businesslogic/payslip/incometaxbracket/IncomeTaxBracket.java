@@ -1,4 +1,4 @@
-package com.jsx.backend.models.payslip.incometaxbracket;
+package com.jsx.backend.businesslogic.payslip.incometaxbracket;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

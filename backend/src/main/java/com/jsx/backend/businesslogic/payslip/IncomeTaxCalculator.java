@@ -1,10 +1,9 @@
-package com.jsx.backend.models.payslip;
+package com.jsx.backend.businesslogic.payslip;
 
-import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracket;
-import com.jsx.backend.models.payslip.incometaxbracket.IncomeTaxBracketService;
+import com.jsx.backend.businesslogic.payslip.incometaxbracket.IncomeTaxBracket;
+import com.jsx.backend.businesslogic.payslip.incometaxbracket.IncomeTaxBracketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 @Service
 //@ComponentScan

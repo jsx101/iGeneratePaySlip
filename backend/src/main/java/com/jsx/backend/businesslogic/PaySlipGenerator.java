@@ -1,6 +1,8 @@
-package com.jsx.backend.models;
+package com.jsx.backend.businesslogic;
 
-import com.jsx.backend.models.payslip.*;
+import com.jsx.backend.models.EmployeeDetail;
+import com.jsx.backend.models.PaySlip;
+import com.jsx.backend.businesslogic.payslip.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -2,6 +2,7 @@ package com.jsx.backend.businesslogic;
 
 import com.jsx.backend.models.EmployeeDetail;
 import com.jsx.backend.models.PaySlip;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,15 +10,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@DisplayName("Pay slip generator test")
 class PaySlipGeneratorTest {
     @Autowired
     PaySlipGenerator paySlipGenerator;
 
     @Test
+    @DisplayName("Testing integration of units from the 'calculators' package to produce a pay slip")
     void returnPaySlip() {
 
         EmployeeDetail employee = new EmployeeDetail(

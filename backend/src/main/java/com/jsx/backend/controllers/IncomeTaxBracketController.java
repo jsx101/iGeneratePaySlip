@@ -1,7 +1,7 @@
 package com.jsx.backend.controllers;
 
 import com.jsx.backend.models.IncomeTaxBracket;
-import com.jsx.backend.businesslogic.payslip.incometaxbracket.IncomeTaxBracketService;
+import com.jsx.backend.businesslogic.calculators.incometaxbracket.IncomeTaxBracketService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

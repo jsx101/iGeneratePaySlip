@@ -1,4 +1,4 @@
-package com.jsx.backend.businesslogic.payslip;
+package com.jsx.backend.businesslogic.calculators;
 
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,14 +6,17 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-//@ComponentScan
-public class SuperannuationCalculator {
+public class NetIncomeCalculator {
+
     @Autowired
     GrossIncomeCalculator grossIncomeCalculator;
+    @Autowired
+    IncomeTaxCalculator incomeTaxCalculator;
 
-    public Integer calculate(Integer annualSalary, Double superRate) {
+    public Integer calculate(Integer annualSalary) {
         Integer grossIncome = grossIncomeCalculator.calculate(annualSalary);
-        return (int) Math.round(grossIncome*superRate);
+        Integer incomeTax = incomeTaxCalculator.calculate(annualSalary);
+        return grossIncome - incomeTax;
     }
 }
 

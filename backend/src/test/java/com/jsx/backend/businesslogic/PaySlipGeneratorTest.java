@@ -1,6 +1,5 @@
 package com.jsx.backend.businesslogic;
 
-import com.jsx.backend.businesslogic.payslip.*;
 import com.jsx.backend.models.EmployeeDetail;
 import com.jsx.backend.models.PaySlip;
 import org.junit.jupiter.api.Test;

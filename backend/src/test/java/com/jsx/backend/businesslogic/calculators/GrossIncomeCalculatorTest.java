@@ -1,4 +1,4 @@
-package com.jsx.backend.businesslogic.payslip;
+package com.jsx.backend.businesslogic.calculators;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

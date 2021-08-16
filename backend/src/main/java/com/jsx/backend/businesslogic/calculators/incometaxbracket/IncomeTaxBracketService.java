@@ -29,6 +29,11 @@ public class IncomeTaxBracketService {
     }
 
     public String insertBracket(IncomeTaxBracket bracket) {
+        if (bracket.getId() != null) {
+            if(incomeTaxBracketRepository.findById(bracket.getId()).isPresent()) {
+                return "Document with similar ID already exists; Use a different ID or the 'save' path";
+            }
+        }
         incomeTaxBracketRepository.insert(bracket);
         return "New document inserted";
     }

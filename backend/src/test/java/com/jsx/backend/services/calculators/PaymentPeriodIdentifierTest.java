@@ -1,4 +1,4 @@
-package com.jsx.backend.businesslogic.calculators;
+package com.jsx.backend.services.calculators;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PaymentPeriodIdentifierTest {
 
     @Autowired
-    PaymentPeriodIdentifier paymentPeriodIdentifier;
+    PaymentPeriodIdentifierService paymentPeriodIdentifier;
 
     @Test
     @DisplayName("Test all 12 months. Expected outputs are the first date of every month")

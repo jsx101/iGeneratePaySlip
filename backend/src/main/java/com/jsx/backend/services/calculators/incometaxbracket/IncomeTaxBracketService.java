@@ -1,4 +1,4 @@
-package com.jsx.backend.businesslogic.calculators.incometaxbracket;
+package com.jsx.backend.services.calculators.incometaxbracket;
 
 import com.jsx.backend.models.IncomeTaxBracket;
 import org.springframework.beans.factory.annotation.Autowired;

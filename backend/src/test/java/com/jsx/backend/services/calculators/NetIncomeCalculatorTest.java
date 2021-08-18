@@ -1,4 +1,4 @@
-package com.jsx.backend.businesslogic.calculators;
+package com.jsx.backend.services.calculators;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class NetIncomeCalculatorTest {
 
     @Autowired
-    NetIncomeCalculator netIncomeCalculator;
+    NetIncomeCalculatorService netIncomeCalculator;
 
     @Test
     @DisplayName("Tests at least one annual salary value for each income tax bracket")

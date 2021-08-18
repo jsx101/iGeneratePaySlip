@@ -1,14 +1,11 @@
 package com.jsx.backend.controllers;
 
 import com.jsx.backend.models.EmployeeDetail;
-import com.jsx.backend.models.PaySlip;
-import com.jsx.backend.businesslogic.PaySlipGenerator;
-import com.jsx.backend.businesslogic.calculators.NetIncomeCalculator;
+import com.jsx.backend.services.PaySlipGeneratorService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -17,7 +14,7 @@ import java.util.List;
 public class PaySlipController {
 
     @Autowired
-    private PaySlipGenerator paySlipGenerator;
+    private PaySlipGeneratorService paySlipGenerator;
 
     // POST request with employee details
     @PostMapping(path="generate")

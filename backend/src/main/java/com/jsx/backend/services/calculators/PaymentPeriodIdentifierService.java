@@ -1,11 +1,11 @@
-package com.jsx.backend.businesslogic.calculators;
+package com.jsx.backend.services.calculators;
 
 import org.springframework.stereotype.Service;
 
 @Service
-public class PaymentPeriodIdentifier {
+public class PaymentPeriodIdentifierService {
 
-    public PaymentPeriodIdentifier() {
+    public PaymentPeriodIdentifierService() {
     }
 
     public String getPaymentStartDate(Integer paymentMonth) {

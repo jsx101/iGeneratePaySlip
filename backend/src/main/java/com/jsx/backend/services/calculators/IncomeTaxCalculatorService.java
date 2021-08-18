@@ -1,7 +1,7 @@
-package com.jsx.backend.businesslogic.calculators;
+package com.jsx.backend.services.calculators;
 
 import com.jsx.backend.models.IncomeTaxBracket;
-import com.jsx.backend.businesslogic.calculators.incometaxbracket.IncomeTaxBracketService;
+import com.jsx.backend.services.calculators.incometaxbracket.IncomeTaxBracketService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 //@ComponentScan
-public class IncomeTaxCalculator {
+public class IncomeTaxCalculatorService {
     @Autowired
     private IncomeTaxBracketService incomeTaxBracketService;
 

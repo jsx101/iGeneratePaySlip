@@ -1,4 +1,4 @@
-package com.jsx.backend.businesslogic;
+package com.jsx.backend.services;
 
 import com.jsx.backend.models.EmployeeDetail;
 import com.jsx.backend.models.PaySlip;
@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Pay slip generator test")
 class PaySlipGeneratorTest {
     @Autowired
-    PaySlipGenerator paySlipGenerator;
+    PaySlipGeneratorService paySlipGenerator;
 
     @Test
     @DisplayName("Testing integration of units from the 'calculators' package to produce a pay slip")

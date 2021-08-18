@@ -1,4 +1,4 @@
-package com.jsx.backend.businesslogic.calculators;
+package com.jsx.backend.services.calculators;
 
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,12 +6,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class NetIncomeCalculator {
+public class NetIncomeCalculatorService {
 
     @Autowired
-    GrossIncomeCalculator grossIncomeCalculator;
+    GrossIncomeCalculatorService grossIncomeCalculator;
     @Autowired
-    IncomeTaxCalculator incomeTaxCalculator;
+    IncomeTaxCalculatorService incomeTaxCalculator;
 
     public Integer calculate(Integer annualSalary) {
         Integer grossIncome = grossIncomeCalculator.calculate(annualSalary);

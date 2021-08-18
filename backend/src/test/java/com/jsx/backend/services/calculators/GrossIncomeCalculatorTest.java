@@ -1,4 +1,4 @@
-package com.jsx.backend.businesslogic.calculators;
+package com.jsx.backend.services.calculators;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,13 +13,13 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Gross income calculator")
 class GrossIncomeCalculatorTest {
     @Autowired
-    private GrossIncomeCalculator grossIncomeCalculator;
+    private GrossIncomeCalculatorService grossIncomeCalculator;
 
     @Test
     @DisplayName("Tests a range of annual salary values")
     void returnGrossIncomeAmount() {
 
-        GrossIncomeCalculator grossIncomeCalculator = new GrossIncomeCalculator();
+        GrossIncomeCalculatorService grossIncomeCalculator = new GrossIncomeCalculatorService();
 
         // This is to test if it rounds up when the decimal value is .5
         Integer grossIncome0 = grossIncomeCalculator.calculate(12006);

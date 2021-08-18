@@ -1,10 +1,10 @@
-package com.jsx.backend.businesslogic.calculators;
+package com.jsx.backend.services.calculators;
 
 import org.springframework.stereotype.Service;
 
 @Service
-public class GrossIncomeCalculator {
-    public GrossIncomeCalculator() {
+public class GrossIncomeCalculatorService {
+    public GrossIncomeCalculatorService() {
     }
 
     public Integer calculate(Integer annualSalary) {

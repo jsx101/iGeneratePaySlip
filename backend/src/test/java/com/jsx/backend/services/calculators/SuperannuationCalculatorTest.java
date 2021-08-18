@@ -1,4 +1,4 @@
-package com.jsx.backend.businesslogic.calculators;
+package com.jsx.backend.services.calculators;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SuperannuationCalculatorTest {
 
     @Autowired
-    SuperannuationCalculator superannuationCalculator;
+    SuperannuationCalculatorService superannuationCalculator;
 
     @Test
     @DisplayName("Testing a range of annual salaries and superannuation rates combinations")

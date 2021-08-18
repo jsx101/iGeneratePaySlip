@@ -1,8 +1,8 @@
-package com.jsx.backend.businesslogic;
+package com.jsx.backend.services;
 
 import com.jsx.backend.models.EmployeeDetail;
 import com.jsx.backend.models.PaySlip;
-import com.jsx.backend.businesslogic.calculators.*;
+import com.jsx.backend.services.calculators.*;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,17 +12,17 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class PaySlipGenerator {
+public class PaySlipGeneratorService {
     @Autowired
-    private GrossIncomeCalculator grossIncomeCalculator;
+    private GrossIncomeCalculatorService grossIncomeCalculator;
     @Autowired
-    private IncomeTaxCalculator incomeTaxCalculator;
+    private IncomeTaxCalculatorService incomeTaxCalculator;
     @Autowired
-    private NetIncomeCalculator netIncomeCalculator;
+    private NetIncomeCalculatorService netIncomeCalculator;
     @Autowired
-    private PaymentPeriodIdentifier paymentPeriodIdentifier;
+    private PaymentPeriodIdentifierService paymentPeriodIdentifier;
     @Autowired
-    private SuperannuationCalculator superannuationCalculator;
+    private SuperannuationCalculatorService superannuationCalculator;
 
 
     public List<PaySlip> returnPaySlips(List<EmployeeDetail> employees) {

@@ -9,6 +9,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: CD to backend directory
+        run: cd backend
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
@@ -22,6 +24,5 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v1
         with:
-          path: backend
           push: false
           tag_with_ref: true

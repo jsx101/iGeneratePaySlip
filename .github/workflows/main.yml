@@ -14,11 +14,8 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.11
-      - name: Build with Maven
-        run: ./mvnw -B package --file pom.xml -DskipTests
-        working-directory: backend
-      - name: Test with Maven
-        run: ./mvnw -B test --file pom.xml
+      - name: Build and test with Maven
+        run: ./mvnw clean install
         working-directory: backend
   docker:
     needs: build
@@ -34,9 +31,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and push
-        id: docker_build
         uses: docker/build-push-action@v2
-        working-directory: backend
         with:
+          context: ./backend
+          file: ./backend/Dockerfile
           push: true
           tags: payslip-gen:latest

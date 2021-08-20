@@ -9,8 +9,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: CD to backend directory
-        run: cd backend
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
@@ -20,6 +18,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: LS current directory
+        run: ls
+      - name: CD to backend directory
+        run: cd backend
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v1

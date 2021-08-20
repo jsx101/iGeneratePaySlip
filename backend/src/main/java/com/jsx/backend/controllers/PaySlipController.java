@@ -21,4 +21,9 @@ public class PaySlipController {
     public String generatePaySlip(@RequestBody List<EmployeeDetail> employees) {
         return paySlipGenerator.returnPaySlips(employees).toString();
     }
+
+    /*@GetMapping(path="say-hello")
+    public String sayHello(){
+        return "Hello!";
+    }*/
 }

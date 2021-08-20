@@ -18,11 +18,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Preparation
-        run: |
-          cd backend
-          ls
-          mvn clean instal -DskipTests -d
-          ls
-      - name: Build
+      - name: Pre-build
+        run: cd backend; ls; mvn clean instal -DskipTests -d; ls
+      - name: Build Docker image
         run: docker build -t psgen .

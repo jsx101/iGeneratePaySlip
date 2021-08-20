@@ -35,6 +35,6 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           path: backend
-          file: backend/Dockerfile
+          dockerfile: backend/Dockerfile
           push: true
           tags: payslip-gen:latest

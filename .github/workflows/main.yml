@@ -1,8 +1,9 @@
 name: Spring Boot App Test
 
-on: push:
-  branches:
-    - 'master'
+on: 
+  push:
+    branches:
+      - 'master'
 
 jobs:
   build:

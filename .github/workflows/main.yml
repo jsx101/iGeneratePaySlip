@@ -23,7 +23,7 @@ jobs:
       - name: LS current directory
         run: ls
       - name: CD to backend directory
-        run: cd backend
+        run: cd backend && ls
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v1
